@@ -27,7 +27,9 @@ def generate_table(correction_unit, correction_factor, target_glucose):
     
     while start_range <= 500:  # Arbitrary upper limit for glucose ranges
         glucose_ranges.append(f"{start_range}-{end_range}")
-        data.append({'Glucose Range': f'{start_range}-{end_range}', 'Humalog Dose': dose})
+        # Format dose to remove decimal place for whole numbers
+        formatted_dose = f"{dose:.1f}" if dose % 1 != 0 else f"{int(dose)}"
+        data.append({'Glucose Range': f'{start_range}-{end_range}', 'Humalog Dose': formatted_dose}) 
         start_range = end_range + 1
         end_range = start_range + correction_factor - 1
         dose += correction_unit

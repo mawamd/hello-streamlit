@@ -144,8 +144,8 @@ default_target_glucose = 160
 
 # User inputs
 correction_unit = st.selectbox('Correction Unit', [0.5, 1.0], index=0)
-correction_factor = st.number_input('Correction Factor', value=default_correction_factor, min_value=1, step=1)
-target_glucose = st.number_input('Target Glucose', value=default_target_glucose, min_value=0, step=1)
+correction_factor = st.number_input('Correction Factor', value=default_correction_factor, min_value=10, step=10)
+target_glucose = st.number_input('Starting At', value=default_target_glucose, min_value=0, step=1)
 
 if st.button('Generate Table'):
     table = generate_table(correction_unit, correction_factor, target_glucose)

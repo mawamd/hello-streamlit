@@ -21,7 +21,8 @@ def generate_table(correction_unit, correction_factor, target_glucose):
     data = []
     
     start_range = target_glucose
-    end_range = target_glucose + correction_factor - 1
+    end_range = target_glucose + correction_factor
+
     dose = correction_unit
     
     while start_range <= 500:  # Arbitrary upper limit for glucose ranges
